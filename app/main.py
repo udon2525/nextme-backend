@@ -1,10 +1,10 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from database import Base, engine, get_db
-from models import User
-from schemas import UserRegister, UserResponse
-from auth import hash_password
+from app.database import Base, engine, get_db
+from app.models import User
+from app.schemas import UserRegister, UserResponse
+from app.auth import hash_password
 
 
 Base.metadata.create_all(bind=engine)
