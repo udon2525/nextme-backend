@@ -35,7 +35,6 @@ def register(
     user: UserRegister,
     db: Session = Depends(get_db)
 ):
-    # メールアドレスの重複チェック
     existing_user = db.query(User).filter(
         User.email == user.email
     ).first()
@@ -46,10 +45,8 @@ def register(
             detail="Email already registered"
         )
 
-    # パスワードをハッシュ化
     hashed_password = hash_password(user.password)
 
-    # ユーザー作成
     new_user = User(
         email=user.email,
         password_hash=hashed_password,
