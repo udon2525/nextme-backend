@@ -1,4 +1,3 @@
-```python
 from datetime import datetime, timedelta, timezone
 
 from jose import jwt
@@ -46,4 +45,3 @@ def create_access_token(
         SECRET_KEY,
         algorithm=ALGORITHM
     )
-```
